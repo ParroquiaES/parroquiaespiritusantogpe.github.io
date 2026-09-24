@@ -1,0 +1,4155 @@
+/* =========================================================
+   PARROQUIA ESPÍRITU SANTO
+   ESTILO GENERAL Y RESPONSIVE
+========================================================= */
+
+
+/* =========================================================
+   GENERAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding-top: 8px;
+    font-family: "Times New Roman", serif;
+    overflow-x: hidden;
+    background: #ffffff;
+    color: #222;
+}
+
+img,
+iframe,
+video {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   VARIABLES DE IMÁGENES
+========================================================= */
+
+:root {
+    --imagen-horizontal-ancho: 180px;
+    --imagen-horizontal-alto: 120px;
+
+    --imagen-vertical-ancho: 180px;
+    --imagen-vertical-alto: 240px;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.top-bar {
+    background: rgb(0, 0, 0);
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+
+    position: relative;
+    z-index: 1000;
+
+    transition: background 0.3s ease;
+}
+
+.top-bar.scrolled {
+    height: 60px;
+    background: rgba(0, 0, 0, 0.95);
+}
+
+.logo {
+    height: 170px;
+    width: auto;
+
+    object-fit: contain;
+
+    transform: scale(1.05);
+
+    flex-shrink: 0;
+}
+
+.ciencia {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.ciencia a {
+    position: relative;
+
+    color: white;
+    text-decoration: none;
+
+    margin-left: 20px;
+
+    white-space: nowrap;
+}
+
+.ciencia a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -5px;
+
+    width: 0%;
+    height: 2px;
+
+    background: white;
+
+    transition: 0.3s;
+}
+
+.ciencia a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    width: 100%;
+    height: 300px;
+
+    overflow: hidden;
+}
+
+.imagen-header {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: brightness(60%);
+
+    animation: zoomSuave 12s ease-in-out infinite;
+}
+
+@keyframes zoomSuave {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+
+}
+
+.hero-texto {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+    max-width: 1000px;
+
+    text-align: center;
+
+    color: white;
+}
+
+.hero-texto h1 {
+    margin: 0;
+
+    font-size: 60px;
+
+    line-height: 1.1;
+
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.hero-texto p {
+    margin-top: 8px;
+
+    font-size: 20px;
+
+    line-height: 1.4;
+
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+
+/* =========================================================
+   CARRUSEL
+========================================================= */
+
+.sabiduria {
+    position: relative;
+
+    width: 100%;
+    height: 220px;
+
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: white;
+
+    opacity: 0;
+
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TARJETAS GENERALES
+========================================================= */
+
+.inteligencia {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    margin: 40px 0;
+
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+
+    width: 200px;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    color: black;
+
+    border-radius: 25px;
+
+    overflow: hidden;
+
+    transition: 0.4s;
+}
+
+.card img {
+    width: 100%;
+    height: 130px;
+
+    object-fit: cover;
+
+    border-radius: 25px;
+
+    transition: 0.4s;
+}
+
+.card:hover {
+    transform: scale(1.07);
+
+    box-shadow: 0 0 30px rgba(68, 68, 68, 0.5);
+}
+
+.overlay {
+    position: absolute;
+
+    bottom: 0;
+
+    width: 100%;
+
+    padding: 8px;
+
+    background: #00155c99;
+
+    color: white;
+
+    font-size: 14px;
+
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+
+/* =========================================================
+   NOTICIAS
+========================================================= */
+
+.contenedor-noticias {
+    width: 80%;
+
+    margin: 40px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+}
+
+.noticia {
+    min-width: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+
+    text-decoration: none;
+
+    color: inherit;
+
+    transition: all 0.3s ease;
+}
+
+.noticia:hover {
+    transform: translateY(-6px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.noticia h3 {
+    margin: 0 0 10px;
+
+    color: #111;
+
+    font-size: 20px;
+}
+
+.noticia p {
+    margin: 0;
+
+    color: #555;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+.texto {
+    width: 60%;
+
+    min-width: 0;
+}
+
+.texto a {
+    display: inline-block;
+
+    margin-top: 8px;
+
+    padding: 8px 15px;
+
+    background: black;
+
+    color: white;
+
+    border-radius: 20px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+}
+
+.img-noticia {
+    display: block;
+
+    flex-shrink: 0;
+
+    background: #f5f5f5;
+
+    border-radius: 10px;
+
+    object-position: center;
+
+    object-fit: contain;
+}
+
+.img-noticia.horizontal {
+    width: var(--imagen-horizontal-ancho);
+    height: var(--imagen-horizontal-alto);
+}
+
+.img-noticia.vertical {
+    width: var(--imagen-vertical-ancho);
+    height: var(--imagen-vertical-alto);
+}
+
+.img-noticia:not(.vertical) {
+    width: var(--imagen-horizontal-ancho);
+    height: var(--imagen-horizontal-alto);
+}
+
+
+/* =========================================================
+   NOTICIAS ALEATORIAS
+========================================================= */
+
+#noticias-random {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 40px auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+    justify-content: center;
+    align-items: stretch;
+}
+
+#noticias-random .noticia {
+    width: auto;
+}
+
+
+/* =========================================================
+   MAPAS
+========================================================= */
+
+.fortaleza {
+    width: 85%;
+
+    margin: 0 auto;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px #00155c99;
+}
+
+iframe {
+    pointer-events: auto;
+}
+
+.fortaleza iframe {
+    display: block;
+
+    width: 100%;
+    height: 250px;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   HORARIOS
+========================================================= */
+
+.consejo {
+    width: 85%;
+
+    margin: 30px auto;
+
+    text-align: center;
+}
+
+.consejo h2 {
+    margin-bottom: 15px;
+
+    color: #000;
+
+    font-size: 24px;
+}
+
+.consejo table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    box-shadow: 0 3px 10px rgb(79, 85, 90);
+}
+
+.consejo th,
+.consejo td {
+    padding: 8px 10px;
+
+    font-size: 14px;
+
+    text-align: left;
+}
+
+.consejo thead {
+    background-color: #00155c;
+
+    color: white;
+}
+
+.consejo tbody tr {
+    background-color: #f9f9f9;
+
+    transition: 0.3s;
+}
+
+.consejo tbody tr:nth-child(even) {
+    background-color: #eaeaea;
+}
+
+.consejo tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+/* =========================================================
+   EQUIPO PASTORAL
+========================================================= */
+
+.titulo-equipo {
+    text-align: center;
+
+    margin-top: 40px;
+
+    color: #000;
+}
+
+.temordedios {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 50px;
+
+    margin: 40px auto;
+
+    flex-wrap: wrap;
+}
+
+.card-comunidad {
+    width: 300px;
+
+    padding: 30px;
+
+    background: white;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+
+    transition: 0.3s;
+}
+
+.card-comunidad:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 0 70px rgba(255, 215, 0, 0.5);
+}
+
+.foto-comunidad {
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+.vocacion {
+    margin-top: 20px;
+
+    font-weight: bold;
+}
+
+.nombre {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   OFICINA PARROQUIAL
+========================================================= */
+
+.oficina-parroquial {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.oficina-contenido {
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    gap: 50px;
+
+    align-items: center;
+}
+
+.oficina-horarios h2,
+.oficina-numeros h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+
+    font-size: 30px;
+
+    color: #000;
+}
+
+.oficina-horarios > p,
+.oficina-numeros > p {
+    margin-bottom: 25px;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    color: #444;
+}
+
+.oficina-horarios .consejo {
+    width: 100%;
+
+    margin: 0;
+}
+
+.oficina-horarios .consejo table {
+    width: 100%;
+}
+
+.oficina-horarios .consejo th,
+.oficina-horarios .consejo td {
+    padding: 13px 12px;
+
+    text-align: left;
+
+    font-size: 15px;
+}
+
+.oficina-numeros {
+    padding: 35px 30px;
+
+    background: #f5f5f5;
+
+    border-radius: 16px;
+
+    text-align: center;
+}
+
+.oficina-numeros h2 {
+    font-size: 28px;
+}
+
+.oficina-numeros > p {
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+.telefonos {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.telefono {
+    padding: 15px;
+
+    background: #00155c;
+
+    color: white;
+
+    border-radius: 10px;
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    letter-spacing: 0.5px;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================================================
+   CAPILLAS
+========================================================= */
+
+.capillas {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+}
+
+.capillas-titulo {
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+.capillas-titulo h2 {
+    margin-bottom: 15px;
+
+    color: #00155c;
+
+    font-size: 38px;
+}
+
+.capillas-titulo p {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+.capillas-contenedor {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+.capilla-card {
+    display: block;
+
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    text-decoration: none;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.capilla-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.capilla-imagen {
+    width: 100%;
+    height: 270px;
+
+    overflow: hidden;
+}
+
+.capilla-imagen img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.capilla-card:hover .capilla-imagen img {
+    transform: scale(1.06);
+}
+
+.capilla-nombre {
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 15px 20px;
+
+    background: #00155c;
+
+    text-align: center;
+}
+
+.capilla-nombre p {
+    margin: 0;
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   GALERÍA DE CAPILLAS
+========================================================= */
+
+.capilla-galeria {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 50px auto;
+}
+
+.capilla-seccion-titulo {
+    margin-bottom: 30px;
+
+    text-align: center;
+}
+
+.capilla-seccion-titulo h2 {
+    margin-bottom: 15px;
+
+    color: #00155c;
+
+    font-size: 36px;
+}
+
+.capilla-seccion-titulo p {
+    max-width: 750px;
+
+    margin: auto;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   HORARIOS DE CAPILLAS
+========================================================= */
+
+.capilla-horarios {
+    width: 90%;
+    max-width: 1000px;
+
+    margin: 70px auto;
+
+    padding: 40px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.capilla-horarios .consejo {
+    width: 100%;
+
+    margin: 0;
+}
+
+.capilla-horarios table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.capilla-horarios th {
+    padding: 15px;
+
+    background: #00155c;
+
+    color: white;
+
+    font-size: 17px;
+
+    text-align: center;
+}
+
+.capilla-horarios td {
+    padding: 15px;
+
+    font-size: 16px;
+
+    text-align: center;
+}
+
+.capilla-horarios tbody tr:nth-child(odd) {
+    background: #f7f7f7;
+}
+
+.capilla-horarios tbody tr:nth-child(even) {
+    background: #eaeaea;
+}
+
+
+/* =========================================================
+   UBICACIÓN CAPILLAS
+========================================================= */
+
+.capilla-ubicacion {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+}
+
+.capilla-ubicacion .fortaleza {
+    width: 100%;
+
+    margin: 0 auto;
+}
+
+.capilla-ubicacion .fortaleza iframe {
+    width: 100%;
+    max-width: 1000px;
+
+    display: block;
+
+    margin: auto;
+
+    border-radius: 15px;
+}
+
+
+/* =========================================================
+   GRUPOS
+========================================================= */
+
+.grupos {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+}
+
+.grupos-titulo {
+    margin-bottom: 40px;
+
+    text-align: center;
+}
+
+.grupos-titulo h2 {
+    margin-bottom: 15px;
+
+    color: #00155c;
+
+    font-size: 38px;
+}
+
+.grupos-titulo p {
+    max-width: 750px;
+
+    margin: 0 auto;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.6;
+}
+
+.grupos-contenedor {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 30px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.grupo-card {
+    overflow: hidden;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.grupo-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+}
+
+.grupo-contenedor .grupo-imagen,
+.grupo-card .grupo-imagen {
+    width: 100%;
+    height: 280px;
+
+    overflow: hidden;
+}
+
+.grupo-card .grupo-imagen img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.grupo-card:hover .grupo-imagen img {
+    transform: scale(1.05);
+}
+
+.grupo-contenido {
+    padding: 25px;
+
+    text-align: center;
+}
+
+.grupo-contenido h3 {
+    margin: 0 0 10px;
+
+    color: #00155c;
+
+    font-size: 24px;
+}
+
+.grupo-contenido p {
+    margin: 0 0 20px;
+
+    color: #444;
+
+    font-size: 17px;
+}
+
+.grupo-contenido a {
+    display: inline-block;
+
+    padding: 10px 25px;
+
+    background: #00155c;
+
+    color: white;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    transition: background 0.3s ease;
+}
+
+.grupo-contenido a:hover {
+    background: #000d3b;
+}
+
+.grupos-galeria {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 70px auto;
+}
+
+.otros-grupos {
+    margin-top: 30px;
+    margin-bottom: 80px;
+}
+
+
+/* =========================================================
+   MONAGUILLOS / INFORMACIÓN DE GRUPOS
+========================================================= */
+
+.grupo-informacion {
+    width: 90%;
+    max-width: 1150px;
+
+    margin: 70px auto;
+}
+
+.grupo-seccion {
+    display: grid;
+
+    grid-template-columns: 45% 55%;
+
+    align-items: stretch;
+
+    margin-bottom: 45px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.grupo-seccion > .grupo-imagen {
+    min-height: 300px;
+
+    overflow: hidden;
+}
+
+.grupo-seccion > .grupo-imagen img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.4s ease;
+}
+
+.grupo-seccion:hover > .grupo-imagen img {
+    transform: scale(1.04);
+}
+
+.grupo-texto {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 45px;
+}
+
+.grupo-texto h2 {
+    margin: 0 0 20px;
+
+    padding-bottom: 12px;
+
+    color: #00155c;
+
+    font-size: 32px;
+
+    border-bottom: 2px solid #e5e5e5;
+}
+
+.grupo-texto p {
+    margin: 0;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+
+    text-align: justify;
+}
+
+.grupo-texto ul {
+    margin: 0;
+
+    padding-left: 25px;
+}
+
+.grupo-texto li {
+    margin-bottom: 10px;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+.grupo-invertido {
+    grid-template-columns: 55% 45%;
+}
+
+.grupo-invertido .grupo-imagen {
+    order: 2;
+}
+
+.grupo-invertido .grupo-texto {
+    order: 1;
+}
+
+.grupo-ubicacion {
+    display: block;
+
+    padding: 0;
+}
+
+.grupo-ubicacion .grupo-texto {
+    padding: 35px 45px 20px;
+}
+
+.grupo-ubicacion .grupo-texto h2 {
+    text-align: center;
+}
+
+.grupo-ubicacion .fortaleza {
+    width: 100%;
+
+    margin: 0;
+}
+
+.grupo-ubicacion .fortaleza iframe {
+    width: 100%;
+    height: 450px;
+
+    display: block;
+
+    border: 0;
+}
+
+.grupo-regresar {
+    margin: 45px 0 70px;
+
+    text-align: center;
+}
+
+.btn-regresar {
+    display: inline-block;
+
+    padding: 13px 32px;
+
+    background: #00155c;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.btn-regresar:hover {
+    background: #000d3b;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   CATECISMO
+========================================================= */
+
+.catecismo-contenido {
+    width: 90%;
+    max-width: 1200px;
+
+    margin: 60px auto 80px;
+}
+
+.catecismo-intro {
+    max-width: 850px;
+
+    margin: 0 auto 60px;
+
+    text-align: center;
+}
+
+.catecismo-intro h1 {
+    margin-bottom: 20px;
+
+    color: #000;
+
+    font-size: 45px;
+}
+
+.catecismo-intro p {
+    margin: 0;
+
+    color: #444;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+}
+
+.catecismo-lugar {
+    display: grid;
+
+    grid-template-columns: 1.15fr 0.85fr;
+
+    gap: 45px;
+
+    width: 100%;
+
+    margin-bottom: 70px;
+
+    padding: 35px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+
+    align-items: stretch;
+}
+
+.catecismo-info,
+.catecismo-ubicacion {
+    min-width: 0;
+}
+
+.catecismo-info h2,
+.catecismo-ubicacion h2 {
+    margin-top: 0;
+
+    color: #000;
+
+    font-size: 28px;
+}
+
+.catecismo-info h2 {
+    margin-bottom: 20px;
+}
+
+.catecismo-info p {
+    margin: 20px 0;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    text-align: justify;
+}
+
+.catecismo-imagen {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.18);
+}
+
+.catecismo-info h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+
+    color: #000;
+
+    font-size: 22px;
+}
+
+.tabla-catecismo {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+.tabla-catecismo th,
+.tabla-catecismo td {
+    padding: 12px 10px;
+
+    font-size: 15px;
+
+    text-align: left;
+}
+
+.tabla-catecismo thead {
+    background: #00155c;
+
+    color: white;
+}
+
+.tabla-catecismo tbody tr {
+    background: #f9f9f9;
+}
+
+.tabla-catecismo tbody tr:nth-child(even) {
+    background: #eaeaea;
+}
+
+.tabla-catecismo tbody tr:hover {
+    background: #ddd;
+}
+
+.catecismo-ubicacion {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+}
+
+.catecismo-ubicacion h2 {
+    margin-bottom: 15px;
+
+    text-align: center;
+}
+
+.catecismo-ubicacion p {
+    margin: 7px 0;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+
+    text-align: center;
+}
+
+.mapa-catecismo {
+    width: 100%;
+
+    margin-top: 20px;
+
+    border-radius: 15px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.18);
+}
+
+.mapa-catecismo iframe {
+    display: block;
+
+    width: 100%;
+    height: 330px;
+
+    border: 0;
+}
+
+
+/* =========================================================
+   NICHOS
+========================================================= */
+
+.preguntas-nichos {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 70px auto;
+}
+
+.preguntas-nichos > h1 {
+    margin-bottom: 60px;
+
+    font-size: 38px;
+
+    text-align: center;
+}
+
+.faq {
+    margin-bottom: 20px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.306);
+}
+
+.pregunta {
+    width: 100%;
+
+    padding: 28px;
+
+    background: #931618;
+
+    border: none;
+
+    color: white;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    text-align: left;
+
+    cursor: pointer;
+}
+
+.respuesta {
+    padding: 0 28px 28px;
+
+    border-top: 1px solid #ddd;
+}
+
+.respuesta p {
+    margin-top: 18px;
+
+    color: #333;
+
+    font-size: 20px;
+
+    line-height: 1.8;
+}
+
+.info-nicho {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 60px;
+
+    width: 100%;
+
+    margin: 0 auto 70px;
+
+    padding-bottom: 50px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.info-nicho-texto {
+    width: 50%;
+
+    text-align: left;
+}
+
+.info-nicho-texto h2 {
+    margin-bottom: 18px;
+
+    color: #931618;
+
+    font-size: 27px;
+
+    line-height: 1.2;
+}
+
+.info-nicho-texto p {
+    margin: 10px 0;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+}
+
+.info-nicho-imagen {
+    width: 45%;
+}
+
+.info-nicho-imagen img {
+    display: block;
+
+    width: 100%;
+    height: 260px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.18);
+}
+
+.info-nicho:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   REDES
+========================================================= */
+
+.redes-contacto {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 80px;
+
+    margin-top: 40px;
+
+    flex-wrap: wrap;
+}
+
+.red-social {
+    text-align: center;
+}
+
+.red-social img {
+    width: 80px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.red-social img:hover {
+    transform: scale(1.1);
+}
+
+.red-social p {
+    margin-top: 12px;
+
+    color: #444;
+
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   NOTICIAS INDIVIDUALES
+========================================================= */
+
+.noticia-periodico {
+    width: 90%;
+    max-width: 1050px;
+
+    margin: 70px auto;
+
+    background: #ffffff;
+
+    border-radius: 18px;
+
+    overflow: hidden;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.14);
+}
+
+.noticia-periodico h1 {
+    margin: 0;
+
+    padding: 45px 55px 15px;
+
+    color: #00155c;
+
+    font-size: 38px;
+
+    line-height: 1.25;
+
+    text-align: center;
+}
+
+.noticia-periodico .fecha {
+    margin: 0;
+
+    padding: 0 55px 35px;
+
+    color: #777;
+
+    font-size: 15px;
+
+    text-align: center;
+}
+
+.noticia-periodico .imagen-noticia {
+    width: 100%;
+    height: 520px;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+.noticia-periodico .contenido-noticia {
+    width: 85%;
+    max-width: 850px;
+
+    margin: auto;
+
+    padding: 45px 0;
+}
+
+.noticia-periodico .contenido-noticia p {
+    margin: 0 0 35px;
+
+    color: #444;
+
+    font-size: 18px;
+
+    line-height: 1.9;
+
+    text-align: justify;
+}
+
+.noticia-periodico .imagen-secundaria {
+    width: 100%;
+    max-width: 800px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 40px auto;
+
+    border-radius: 14px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.15);
+
+    transition: transform 0.3s ease;
+}
+
+.noticia-periodico .imagen-secundaria:hover {
+    transform: scale(1.02);
+}
+
+.noticia-periodico .btn-regresar {
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto 50px;
+
+    padding: 13px 30px;
+
+    background: #00155c;
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    border-radius: 8px;
+
+    transition: 0.3s;
+}
+
+.noticia-periodico .btn-regresar:hover {
+    background: #000d3b;
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================================================
+   TÉRMINOS Y CONDICIONES
+========================================================= */
+
+.contenedor-terminos {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 70px auto;
+
+    padding: 55px 65px;
+
+    background: white;
+
+    border-radius: 20px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.contenedor-terminos p {
+    margin: 0 0 28px;
+
+    color: #444;
+
+    font-size: 17px;
+
+    line-height: 1.85;
+
+    text-align: justify;
+}
+
+.contenedor-terminos h2 {
+    margin: 50px 0 25px;
+
+    padding-bottom: 12px;
+
+    color: #00155c;
+
+    font-size: 27px;
+
+    line-height: 1.3;
+
+    border-bottom: 2px solid #00155c;
+}
+
+.contenedor-terminos p:first-child {
+    margin-bottom: 35px;
+
+    padding: 15px 20px;
+
+    background: #f2f4f8;
+
+    border-left: 5px solid #00155c;
+
+    border-radius: 5px;
+
+    color: #555;
+
+    text-align: left;
+}
+
+.contenedor-terminos ul {
+    padding-left: 25px;
+}
+
+.contenedor-terminos li {
+    margin-bottom: 8px;
+
+    color: #444;
+
+    font-size: 16px;
+}
+
+.barra-decorativa {
+    width: 100%;
+}
+
+
+/* =========================================================
+   SAN JOSELITO
+========================================================= */
+
+.sanjoselito {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+}
+
+.sanjoselito img {
+    width: 100%;
+
+    max-height: 525px;
+
+    display: block;
+
+    object-fit: cover;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    display: flex;
+
+    flex-direction: column;
+
+    width: 100%;
+
+    background: black;
+
+    color: white;
+}
+
+.footer-top {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 40px;
+
+    padding: 40px;
+}
+
+.footer-col {
+    min-width: 0;
+}
+
+.footer-col h3 {
+    margin-bottom: 15px;
+
+    color: white;
+
+    font-size: 14px;
+}
+
+.footer-col ul {
+    padding: 0;
+
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: white;
+
+    font-size: 14px;
+
+    text-decoration: none;
+}
+
+.footer-col a:hover {
+    color: #858585;
+}
+
+.footer-col p {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+}
+
+.footer-bottom {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px 40px;
+
+    border-top: 1px solid white;
+}
+
+.footer-bottom a {
+    color: white;
+
+    text-decoration: none;
+}
+
+.footer-bottom a:hover {
+    text-decoration: underline;
+}
+
+.lado-derecho {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+}
+
+.facebook-icon {
+    width: 70px;
+
+    transition: 0.3s;
+}
+
+.facebook-icon:hover {
+    transform: scale(1.1);
+}
+
+.sello {
+    width: 70px;
+    height: auto;
+}
+
+
+/* =========================================================
+   TABLET
+   769px - 1024px
+========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    body {
+        padding-top: 0;
+    }
+
+
+    /* HEADER */
+
+    .top-bar,
+    .top-bar.scrolled {
+        display: contents;
+    }
+
+    .top-bar > a {
+        width: 100%;
+        height: 80px;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 5px 15px;
+
+        background: #000;
+    }
+
+    .logo,
+    .top-bar.scrolled .logo {
+        width: auto;
+        max-width: 180px;
+        height: 105px;
+
+        margin: 0 auto;
+
+        transform: none;
+
+        object-fit: contain;
+    }
+
+    .ciencia {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+
+        width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        padding: 8px 12px;
+
+        background: #000;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ciencia::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ciencia a {
+        flex: 0 0 auto;
+
+        margin-left: 0;
+
+        padding: 7px 10px;
+
+        font-size: 14px;
+
+        white-space: nowrap;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 260px;
+    }
+
+    .hero-texto h1 {
+        font-size: 48px;
+    }
+
+    .hero-texto p {
+        font-size: 18px;
+    }
+
+
+    /* NOTICIAS */
+
+    .contenedor-noticias {
+        width: 90%;
+
+        gap: 20px;
+    }
+
+    .noticia {
+        padding: 15px;
+    }
+
+    .texto {
+        width: 55%;
+    }
+
+    .img-noticia.horizontal {
+        width: 140px;
+        height: 110px;
+    }
+
+    .img-noticia.vertical {
+        width: 140px;
+        height: 190px;
+    }
+
+    #noticias-random {
+        width: 94%;
+
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+
+        gap: 12px;
+    }
+
+
+    /* MAPA */
+
+    .fortaleza {
+        width: 90%;
+    }
+
+
+    /* FOOTER */
+
+    .footer-top {
+        gap: 25px;
+
+        padding: 30px;
+    }
+
+
+    /* CATECISMO */
+
+    .catecismo-contenido {
+        width: 92%;
+
+        margin: 50px auto 70px;
+    }
+
+    .catecismo-intro h1 {
+        font-size: 40px;
+    }
+
+    .catecismo-lugar {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+
+        padding: 25px;
+
+        margin-bottom: 50px;
+    }
+
+    .catecismo-info h2,
+    .catecismo-ubicacion h2 {
+        font-size: 25px;
+    }
+
+    .catecismo-imagen {
+        height: 220px;
+    }
+
+    .mapa-catecismo iframe {
+        height: 280px;
+    }
+
+    .tabla-catecismo th,
+    .tabla-catecismo td {
+        padding: 9px 7px;
+
+        font-size: 13px;
+    }
+
+
+    /* OFICINA */
+
+    .oficina-parroquial {
+        width: 92%;
+
+        padding: 30px;
+
+        margin: 55px auto;
+    }
+
+    .oficina-contenido {
+        grid-template-columns: 1fr 1fr;
+
+        gap: 30px;
+    }
+
+    .oficina-horarios h2,
+    .oficina-numeros h2 {
+        font-size: 26px;
+    }
+
+    .oficina-horarios > p,
+    .oficina-numeros > p {
+        font-size: 15px;
+    }
+
+    .oficina-horarios .consejo th,
+    .oficina-horarios .consejo td {
+        padding: 10px 8px;
+
+        font-size: 13px;
+    }
+
+    .oficina-numeros {
+        padding: 25px 20px;
+    }
+
+    .telefono {
+        font-size: 17px;
+
+        padding: 13px;
+    }
+
+
+    /* CAPILLAS */
+
+    .capillas {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+    .capillas-titulo h2 {
+        font-size: 34px;
+    }
+
+    .capillas-titulo p {
+        font-size: 16px;
+    }
+
+    .capillas-contenedor {
+        gap: 20px;
+    }
+
+    .capilla-imagen {
+        height: 220px;
+    }
+
+    .capilla-nombre {
+        min-height: 70px;
+
+        padding: 12px;
+    }
+
+    .capilla-nombre p {
+        font-size: 17px;
+    }
+
+
+    /* CAPILLA INTERNA */
+
+    .capilla-galeria {
+        width: 92%;
+
+        margin: 45px auto;
+    }
+
+    .capilla-horarios {
+        width: 92%;
+
+        padding: 30px;
+
+        margin: 55px auto;
+    }
+
+    .capilla-seccion-titulo h2 {
+        font-size: 32px;
+    }
+
+    .capilla-seccion-titulo p {
+        font-size: 16px;
+    }
+
+    .capilla-horarios th,
+    .capilla-horarios td {
+        padding: 12px;
+
+        font-size: 15px;
+    }
+
+    .capilla-ubicacion {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+
+    /* GRUPOS */
+
+    .grupos {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+    .grupos-titulo h2 {
+        font-size: 34px;
+    }
+
+    .grupos-titulo p {
+        font-size: 16px;
+    }
+
+    .grupos-contenedor {
+        gap: 20px;
+    }
+
+    .grupo-card .grupo-imagen {
+        height: 230px;
+    }
+
+    .grupo-contenido {
+        padding: 20px;
+    }
+
+    .grupo-contenido h3 {
+        font-size: 21px;
+    }
+
+    .grupo-contenido p {
+        font-size: 15px;
+    }
+
+    .grupos-galeria {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+
+    /* MONAGUILLOS */
+
+    .grupo-informacion {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+    .grupo-seccion {
+        grid-template-columns: 45% 55%;
+
+        margin-bottom: 35px;
+    }
+
+    .grupo-seccion > .grupo-imagen {
+        min-height: 260px;
+    }
+
+    .grupo-texto {
+        padding: 30px;
+    }
+
+    .grupo-texto h2 {
+        font-size: 28px;
+    }
+
+    .grupo-texto p,
+    .grupo-texto li {
+        font-size: 16px;
+    }
+
+
+    /* NOTICIAS */
+
+    .noticia-periodico {
+        width: 92%;
+
+        margin: 55px auto;
+    }
+
+    .noticia-periodico h1 {
+        font-size: 32px;
+
+        padding: 35px 40px 15px;
+    }
+
+    .noticia-periodico .fecha {
+        padding: 0 40px 30px;
+    }
+
+    .noticia-periodico .imagen-noticia {
+        height: 430px;
+    }
+
+    .noticia-periodico .contenido-noticia {
+        width: 88%;
+    }
+
+
+    /* TÉRMINOS */
+
+    .contenedor-terminos {
+        width: 92%;
+
+        padding: 45px 50px;
+
+        margin: 55px auto;
+    }
+
+    .contenedor-terminos p {
+        font-size: 16px;
+
+        line-height: 1.8;
+    }
+
+    .contenedor-terminos h2 {
+        font-size: 25px;
+
+        margin-top: 45px;
+    }
+
+}
+
+
+/* =========================================================
+   CELULAR
+   HASTA 768px
+========================================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+
+        overflow-x: hidden;
+    }
+
+    body {
+        padding-top: 0;
+
+        -webkit-text-size-adjust: 100%;
+    }
+
+
+    /* =====================================================
+       HEADER MÓVIL
+    ===================================================== */
+
+    .top-bar,
+    .top-bar.scrolled {
+        display: contents;
+    }
+
+    .top-bar > a {
+        width: 100%;
+        height: 78px;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 4px 8px;
+
+        background: #000;
+    }
+
+    .logo,
+    .top-bar.scrolled .logo {
+        width: auto;
+        max-width: 165px;
+
+        height: 65px;
+
+        margin: 0 auto;
+
+        transform: none;
+
+        object-fit: contain;
+
+        flex-shrink: 0;
+    }
+
+    .ciencia {
+        position: sticky;
+
+        top: 0;
+
+        z-index: 1000;
+
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        flex-wrap: nowrap;
+
+        gap: 3px;
+
+        padding: 6px 8px;
+
+        background: #000;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        scrollbar-width: none;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ciencia::-webkit-scrollbar {
+        display: none;
+    }
+
+    .ciencia a {
+        flex: 0 0 auto;
+
+        margin-left: 0;
+
+        min-height: 30px;
+
+        padding: 7px 9px;
+
+        color: white;
+
+        font-size: 12px;
+
+        line-height: 1;
+
+        white-space: nowrap;
+
+        background: rgba(255, 255, 255, 0.08);
+
+        border: 1px solid rgba(255, 255, 255, 0.16);
+
+        border-radius: 18px;
+    }
+
+    .ciencia a::after {
+        display: none;
+    }
+
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+
+    .hero {
+        width: 100%;
+        height: 190px;
+    }
+
+    .hero-texto {
+        width: 92%;
+        max-width: 92%;
+
+        padding: 0 5px;
+    }
+
+    .hero-texto h1 {
+        font-size: clamp(26px, 7vw, 34px);
+
+        line-height: 1.1;
+
+        overflow-wrap: anywhere;
+    }
+
+    .hero-texto p {
+        font-size: 14px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       CARRUSEL
+    ===================================================== */
+
+    .sabiduria {
+        width: 100%;
+        height: 180px;
+    }
+
+    .slide {
+        object-fit: cover;
+    }
+
+
+    /* =====================================================
+       NOTICIAS
+    ===================================================== */
+
+    .contenedor-noticias {
+        width: 94%;
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
+
+        margin: 30px auto;
+    }
+
+    .noticia {
+        width: 100%;
+
+        min-width: 0;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 15px;
+
+        border-radius: 16px;
+    }
+
+    .texto {
+        width: 100%;
+
+        min-width: 0;
+    }
+
+    .noticia h3 {
+        font-size: 19px;
+
+        line-height: 1.25;
+    }
+
+    .noticia p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .texto a {
+        margin-top: 8px;
+    }
+
+
+    /* =====================================================
+       IMÁGENES DE NOTICIAS
+    ===================================================== */
+
+    .img-noticia.horizontal,
+    .img-noticia.vertical,
+    .img-noticia:not(.vertical) {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 12px auto 0;
+
+        border-radius: 11px;
+
+        object-fit: contain;
+    }
+
+    .img-noticia.horizontal {
+        height: var(--imagen-horizontal-alto);
+    }
+
+    .img-noticia.vertical {
+        height: var(--imagen-vertical-alto);
+    }
+
+    .img-noticia:not(.vertical) {
+        height: var(--imagen-horizontal-alto);
+    }
+
+
+    /* =====================================================
+       NOTICIAS ALEATORIAS
+    ===================================================== */
+
+    #noticias-random {
+        width: 94%;
+
+        margin: 30px auto;
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+    #noticias-random .noticia {
+        width: 100%;
+
+        min-width: 0;
+
+        display: flex;
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 15px;
+    }
+
+    #noticias-random .texto {
+        width: 100%;
+    }
+
+    #noticias-random .noticia h3 {
+        font-size: 18px;
+
+        line-height: 1.25;
+
+        margin-bottom: 8px;
+    }
+
+    #noticias-random .noticia p {
+        font-size: 13px;
+
+        line-height: 1.5;
+
+        margin: 5px 0;
+    }
+
+    #noticias-random .img-noticia.horizontal,
+    #noticias-random .img-noticia.vertical,
+    #noticias-random .img-noticia:not(.vertical) {
+        width: 100%;
+        max-width: 100%;
+
+        margin: 10px auto 0;
+
+        object-fit: contain;
+    }
+
+    #noticias-random .img-noticia.horizontal,
+    #noticias-random .img-noticia:not(.vertical) {
+        height: var(--imagen-horizontal-alto);
+    }
+
+    #noticias-random .img-noticia.vertical {
+        height: var(--imagen-vertical-alto);
+    }
+
+    #noticias-random .texto a {
+        font-size: 12px;
+
+        padding: 7px 12px;
+
+        margin-top: 7px;
+    }
+
+
+    /* =====================================================
+       CAPILLAS / TARJETAS
+    ===================================================== */
+
+    .inteligencia {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+
+        margin: 30px 0;
+    }
+
+    .card {
+        width: 92%;
+        max-width: 380px;
+    }
+
+    .card img {
+        width: 100%;
+        height: 190px;
+
+        border-radius: 18px;
+    }
+
+
+    /* =====================================================
+       EQUIPO
+    ===================================================== */
+
+    .titulo-equipo {
+        margin-top: 30px;
+
+        padding: 0 15px;
+    }
+
+    .temordedios {
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 20px;
+
+        width: 100%;
+    }
+
+    .card-comunidad {
+        width: 88%;
+        max-width: 380px;
+
+        padding: 25px 20px;
+    }
+
+
+    /* =====================================================
+       MAPA
+    ===================================================== */
+
+    .fortaleza {
+        width: 94%;
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fortaleza iframe {
+        display: block;
+
+        width: 100%;
+        height: 220px;
+
+        border: 0;
+    }
+
+
+    /* =====================================================
+       HORARIOS
+    ===================================================== */
+
+    .consejo {
+        width: 94%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .consejo table {
+        width: 100%;
+
+        min-width: 520px;
+    }
+
+    .consejo th,
+    .consejo td {
+        padding: 8px;
+
+        font-size: 12px;
+
+        white-space: normal;
+    }
+
+
+    /* =====================================================
+       OFICINA
+    ===================================================== */
+
+    .oficina-parroquial {
+        width: 94%;
+
+        padding: 22px;
+
+        margin: 45px auto;
+    }
+
+    .oficina-contenido {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 35px;
+    }
+
+    .oficina-horarios,
+    .oficina-numeros {
+        width: 100%;
+    }
+
+    .oficina-horarios h2,
+    .oficina-numeros h2 {
+        font-size: 25px;
+    }
+
+    .oficina-horarios > p,
+    .oficina-numeros > p {
+        font-size: 15px;
+    }
+
+    .oficina-horarios .consejo {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .oficina-horarios .consejo table {
+        min-width: 460px;
+    }
+
+    .oficina-horarios .consejo th,
+    .oficina-horarios .consejo td {
+        padding: 10px 7px;
+
+        font-size: 12px;
+    }
+
+    .oficina-numeros {
+        padding: 25px 18px;
+    }
+
+    .telefono {
+        font-size: 17px;
+
+        padding: 13px;
+
+        overflow-wrap: anywhere;
+    }
+
+
+    /* =====================================================
+       NICHOS
+    ===================================================== */
+
+    .preguntas-nichos {
+        width: 94%;
+
+        margin: 40px auto 60px;
+    }
+
+    .preguntas-nichos > h1 {
+        font-size: clamp(28px, 8vw, 36px);
+
+        line-height: 1.15;
+
+        margin-bottom: 30px;
+    }
+
+    .faq {
+        border-radius: 14px;
+    }
+
+    .pregunta {
+        padding: 18px;
+
+        font-size: 18px;
+
+        line-height: 1.35;
+    }
+
+    .respuesta {
+        padding: 0 18px 20px;
+    }
+
+    .respuesta p {
+        font-size: 16px;
+
+        line-height: 1.65;
+    }
+
+    .info-nicho {
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        margin-bottom: 45px;
+
+        padding-bottom: 35px;
+    }
+
+    .info-nicho:nth-child(even) {
+        flex-direction: column;
+    }
+
+    .info-nicho-texto,
+    .info-nicho-imagen {
+        width: 100%;
+    }
+
+    .info-nicho-texto h2 {
+        font-size: 23px;
+
+        line-height: 1.25;
+    }
+
+    .info-nicho-texto p {
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        text-align: left;
+    }
+
+    .info-nicho-imagen img {
+        width: 100%;
+
+        height: 220px;
+    }
+
+
+    /* =====================================================
+       REDES
+    ===================================================== */
+
+    .redes-contacto {
+        width: 100%;
+
+        gap: 30px;
+
+        flex-wrap: wrap;
+
+        padding: 0 15px;
+    }
+
+    .red-social img {
+        width: 65px;
+    }
+
+    .red-social p {
+        font-size: 16px;
+    }
+
+
+    /* =====================================================
+       CATECISMO
+    ===================================================== */
+
+    .catecismo-contenido {
+        width: 94%;
+        max-width: 100%;
+
+        margin: 40px auto 60px;
+    }
+
+    .catecismo-intro {
+        width: 100%;
+
+        margin-bottom: 35px;
+    }
+
+    .catecismo-intro h1 {
+        font-size: clamp(30px, 8vw, 38px);
+
+        line-height: 1.2;
+
+        margin-bottom: 15px;
+    }
+
+    .catecismo-intro p {
+        font-size: 16px;
+
+        line-height: 1.6;
+
+        text-align: justify;
+    }
+
+    .catecismo-lugar {
+        display: flex;
+
+        flex-direction: column;
+
+        width: 100%;
+
+        gap: 30px;
+
+        padding: 20px;
+
+        margin-bottom: 40px;
+
+        border-radius: 16px;
+    }
+
+    .catecismo-info h2,
+    .catecismo-ubicacion h2 {
+        font-size: 24px;
+
+        line-height: 1.25;
+    }
+
+    .catecismo-info h2 {
+        margin-bottom: 18px;
+    }
+
+    .catecismo-info p {
+        font-size: 15px;
+
+        line-height: 1.65;
+
+        text-align: justify;
+    }
+
+    .catecismo-imagen {
+        width: 100%;
+        height: 210px;
+
+        border-radius: 12px;
+    }
+
+    .catecismo-info h3 {
+        font-size: 20px;
+
+        margin-top: 25px;
+    }
+
+    .tabla-catecismo {
+        width: 100%;
+
+        display: block;
+
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabla-catecismo table {
+        min-width: 430px;
+    }
+
+    .tabla-catecismo th,
+    .tabla-catecismo td {
+        padding: 9px 6px;
+
+        font-size: 12px;
+
+        line-height: 1.3;
+    }
+
+    .catecismo-ubicacion {
+        width: 100%;
+    }
+
+    .catecismo-ubicacion p {
+        font-size: 15px;
+    }
+
+    .mapa-catecismo {
+        margin-top: 15px;
+
+        border-radius: 12px;
+    }
+
+    .mapa-catecismo iframe {
+        width: 100%;
+        height: 250px;
+    }
+
+
+    /* =====================================================
+       CAPILLAS
+    ===================================================== */
+
+    .capillas {
+        width: 92%;
+
+        margin: 45px auto;
+    }
+
+    .capillas-titulo {
+        margin-bottom: 30px;
+    }
+
+    .capillas-titulo h2 {
+        font-size: 30px;
+    }
+
+    .capillas-titulo p {
+        font-size: 15px;
+    }
+
+    .capillas-contenedor {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .capilla-imagen {
+        height: 230px;
+    }
+
+    .capilla-nombre {
+        min-height: 65px;
+    }
+
+    .capilla-nombre p {
+        font-size: 18px;
+    }
+
+
+    /* =====================================================
+       CAPILLA INTERNA
+    ===================================================== */
+
+    .capilla-galeria {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .capilla-horarios {
+        width: 92%;
+
+        padding: 22px;
+
+        margin: 45px auto;
+
+        border-radius: 15px;
+    }
+
+    .capilla-seccion-titulo {
+        margin-bottom: 22px;
+    }
+
+    .capilla-seccion-titulo h2 {
+        font-size: 28px;
+    }
+
+    .capilla-seccion-titulo p {
+        font-size: 15px;
+    }
+
+    .capilla-horarios {
+        overflow-x: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .capilla-horarios table {
+        min-width: 430px;
+    }
+
+    .capilla-horarios th,
+    .capilla-horarios td {
+        padding: 10px 7px;
+
+        font-size: 13px;
+    }
+
+    .capilla-ubicacion {
+        width: 94%;
+
+        margin: 45px auto;
+    }
+
+    .capilla-ubicacion .fortaleza iframe {
+        height: 350px;
+    }
+
+
+    /* =====================================================
+       GRUPOS
+    ===================================================== */
+
+    .grupos {
+        width: 94%;
+
+        margin: 45px auto;
+    }
+
+    .grupos-titulo {
+        margin-bottom: 30px;
+    }
+
+    .grupos-titulo h2 {
+        font-size: 30px;
+    }
+
+    .grupos-titulo p {
+        font-size: 15px;
+    }
+
+    .grupos-contenedor {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+    }
+
+    .grupo-card .grupo-imagen {
+        height: 230px;
+    }
+
+    .grupo-contenido {
+        padding: 20px;
+    }
+
+    .grupo-contenido h3 {
+        font-size: 21px;
+    }
+
+    .grupo-contenido p {
+        font-size: 15px;
+    }
+
+    .grupos-galeria {
+        width: 94%;
+
+        margin: 45px auto;
+    }
+
+    .otros-grupos {
+        margin-top: 20px;
+
+        margin-bottom: 50px;
+    }
+
+
+    /* =====================================================
+       MONAGUILLOS
+    ===================================================== */
+
+    .grupo-informacion {
+        width: 94%;
+
+        margin: 45px auto;
+    }
+
+    .grupo-seccion,
+    .grupo-invertido {
+        display: flex;
+
+        flex-direction: column;
+
+        margin-bottom: 30px;
+    }
+
+    .grupo-seccion > .grupo-imagen {
+        width: 100%;
+
+        height: 240px;
+
+        min-height: 240px;
+    }
+
+    .grupo-texto {
+        padding: 25px;
+    }
+
+    .grupo-texto h2 {
+        font-size: 25px;
+    }
+
+    .grupo-texto p,
+    .grupo-texto li {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .grupo-invertido .grupo-imagen {
+        order: 1;
+    }
+
+    .grupo-invertido .grupo-texto {
+        order: 2;
+    }
+
+    .grupo-ubicacion .grupo-texto {
+        padding: 25px;
+    }
+
+    .grupo-ubicacion .fortaleza iframe {
+        height: 350px;
+    }
+
+
+    /* =====================================================
+       NOTICIA INDIVIDUAL
+    ===================================================== */
+
+    .noticia-periodico {
+        width: 94%;
+
+        margin: 40px auto;
+
+        border-radius: 14px;
+    }
+
+    .noticia-periodico h1 {
+        font-size: 26px;
+
+        padding: 30px 20px 12px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .noticia-periodico .fecha {
+        padding: 0 20px 25px;
+
+        font-size: 14px;
+    }
+
+    .noticia-periodico .imagen-noticia {
+        width: 100%;
+
+        height: 300px;
+
+        object-fit: cover;
+    }
+
+    .noticia-periodico .contenido-noticia {
+        width: 90%;
+
+        padding: 30px 0;
+    }
+
+    .noticia-periodico .contenido-noticia p {
+        font-size: 16px;
+
+        line-height: 1.7;
+
+        text-align: left;
+
+        overflow-wrap: anywhere;
+    }
+
+    .noticia-periodico .imagen-secundaria {
+        margin: 30px auto;
+
+        border-radius: 10px;
+    }
+
+    .noticia-periodico .btn-regresar {
+        margin-bottom: 35px;
+
+        padding: 11px 24px;
+
+        font-size: 15px;
+    }
+
+
+    /* =====================================================
+       TÉRMINOS
+    ===================================================== */
+
+    .contenedor-terminos {
+        width: 94%;
+
+        margin: 40px auto;
+
+        padding: 30px 22px;
+
+        border-radius: 15px;
+
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.10);
+    }
+
+    .contenedor-terminos p {
+        font-size: 16px;
+
+        line-height: 1.75;
+
+        text-align: left;
+
+        margin-bottom: 25px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .contenedor-terminos h2 {
+        margin: 40px 0 20px;
+
+        padding-bottom: 10px;
+
+        font-size: 22px;
+
+        line-height: 1.35;
+    }
+
+    .contenedor-terminos p:first-child {
+        padding: 13px 15px;
+
+        margin-bottom: 28px;
+    }
+
+
+    /* =====================================================
+       SAN JOSELITO
+    ===================================================== */
+
+    .sanjoselito {
+        width: 100%;
+    }
+
+    .sanjoselito img {
+        width: 100%;
+
+        max-height: 350px;
+
+        object-fit: cover;
+    }
+
+
+    /* =====================================================
+       FOOTER MÓVIL
+    ===================================================== */
+
+    .footer {
+        width: 100%;
+    }
+
+    .footer-top {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 30px 20px;
+
+        text-align: center;
+    }
+
+    .footer-col {
+        min-width: 0;
+    }
+
+    .footer-col h3 {
+        font-size: 15px;
+    }
+
+    .footer-col p,
+    .footer-col a {
+        font-size: 14px;
+
+        overflow-wrap: anywhere;
+    }
+
+    .footer-col ul {
+        margin: 0;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        gap: 12px;
+
+        padding: 20px;
+
+        text-align: center;
+    }
+
+    .lado-derecho {
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .facebook-icon,
+    .sello {
+        width: 50px;
+
+        height: auto;
+    }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUEÑOS
+   HASTA 480px
+========================================================= */
+
+@media (max-width: 480px) {
+
+    /* HEADER */
+
+    .top-bar > a {
+        height: 76px;
+
+        padding: 3px 4px;
+    }
+
+    .logo,
+    .top-bar.scrolled .logo {
+        height: 62px;
+
+        max-width: 155px;
+    }
+
+    .ciencia {
+        gap: 3px;
+
+        padding: 5px 6px;
+    }
+
+    .ciencia a {
+        font-size: 11px;
+
+        padding: 7px 8px;
+
+        min-height: 28px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        height: 180px;
+    }
+
+    .hero-texto {
+        width: 91%;
+
+        padding: 10px;
+    }
+
+    .hero-texto h1 {
+        font-size: 25px;
+    }
+
+    .hero-texto p {
+        font-size: 13px;
+    }
+
+
+    /* CARRUSEL */
+
+    .sabiduria {
+        height: 165px;
+    }
+
+
+    /* NOTICIAS */
+
+    .noticia,
+    #noticias-random .noticia {
+        padding: 15px;
+
+        border-radius: 16px;
+    }
+
+    .noticia h3,
+    #noticias-random .noticia h3 {
+        font-size: 18px;
+    }
+
+
+    /* IMÁGENES */
+
+    .img-noticia.horizontal,
+    .img-noticia.vertical,
+    .img-noticia:not(.vertical) {
+        width: 100%;
+
+        max-width: 100%;
+
+        border-radius: 11px;
+
+        object-fit: contain;
+    }
+
+    .img-noticia.horizontal,
+    .img-noticia:not(.vertical) {
+        height: var(--imagen-horizontal-alto);
+    }
+
+    .img-noticia.vertical {
+        height: var(--imagen-vertical-alto);
+    }
+
+
+    /* CAPILLAS */
+
+    .card {
+        width: 94%;
+    }
+
+    .card img {
+        height: 185px;
+    }
+
+
+    /* MAPA */
+
+    .fortaleza {
+        width: 94%;
+    }
+
+    .fortaleza iframe {
+        height: 205px;
+    }
+
+
+    /* HORARIOS */
+
+    .consejo table {
+        min-width: 500px;
+    }
+
+
+    /* OFICINA */
+
+    .oficina-parroquial {
+        width: 94%;
+
+        padding: 17px;
+
+        margin: 35px auto;
+    }
+
+    .oficina-contenido {
+        gap: 28px;
+    }
+
+    .oficina-horarios h2,
+    .oficina-numeros h2 {
+        font-size: 22px;
+    }
+
+    .oficina-horarios > p,
+    .oficina-numeros > p {
+        font-size: 14px;
+    }
+
+    .oficina-horarios .consejo table {
+        min-width: 440px;
+    }
+
+    .oficina-horarios .consejo th,
+    .oficina-horarios .consejo td {
+        padding: 8px 5px;
+
+        font-size: 11px;
+    }
+
+    .oficina-numeros {
+        padding: 20px 15px;
+    }
+
+    .telefono {
+        font-size: 16px;
+
+        padding: 12px;
+    }
+
+
+    /* NICHOS */
+
+    .preguntas-nichos {
+        width: 94%;
+    }
+
+    .faq {
+        border-radius: 14px;
+    }
+
+    .pregunta {
+        padding: 16px;
+
+        font-size: 17px;
+    }
+
+    .respuesta {
+        padding: 0 16px 18px;
+    }
+
+    .respuesta p {
+        font-size: 15px;
+    }
+
+    .info-nicho-imagen img {
+        height: 190px;
+    }
+
+
+    /* REDES */
+
+    .redes-contacto {
+        gap: 25px;
+    }
+
+    .red-social img {
+        width: 60px;
+    }
+
+    .red-social p {
+        font-size: 15px;
+    }
+
+
+    /* CATECISMO */
+
+    .catecismo-contenido {
+        width: 94%;
+
+        margin: 30px auto 50px;
+    }
+
+    .catecismo-intro h1 {
+        font-size: 30px;
+    }
+
+    .catecismo-intro p {
+        font-size: 15px;
+    }
+
+    .catecismo-lugar {
+        padding: 16px;
+
+        gap: 25px;
+
+        border-radius: 14px;
+    }
+
+    .catecismo-info h2,
+    .catecismo-ubicacion h2 {
+        font-size: 22px;
+    }
+
+    .catecismo-info p {
+        font-size: 14px;
+    }
+
+    .catecismo-imagen {
+        height: 180px;
+    }
+
+    .catecismo-info h3 {
+        font-size: 19px;
+    }
+
+    .tabla-catecismo {
+        overflow-x: auto;
+    }
+
+    .tabla-catecismo th,
+    .tabla-catecismo td {
+        padding: 8px 5px;
+
+        font-size: 11px;
+    }
+
+    .mapa-catecismo iframe {
+        height: 220px;
+    }
+
+
+    /* CAPILLAS */
+
+    .capillas {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .capillas-titulo h2 {
+        font-size: 27px;
+    }
+
+    .capillas-titulo p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .capillas-contenedor {
+        gap: 20px;
+    }
+
+    .capilla-imagen {
+        height: 210px;
+    }
+
+    .capilla-nombre {
+        min-height: 60px;
+
+        padding: 10px 15px;
+    }
+
+    .capilla-nombre p {
+        font-size: 17px;
+    }
+
+
+    /* CAPILLA INTERNA */
+
+    .capilla-galeria {
+        width: 94%;
+
+        margin: 30px auto;
+    }
+
+    .capilla-horarios {
+        width: 94%;
+
+        padding: 17px;
+
+        margin: 35px auto;
+    }
+
+    .capilla-seccion-titulo h2 {
+        font-size: 25px;
+    }
+
+    .capilla-seccion-titulo p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .capilla-horarios table {
+        min-width: 400px;
+    }
+
+    .capilla-horarios th,
+    .capilla-horarios td {
+        padding: 8px 5px;
+
+        font-size: 11px;
+    }
+
+    .capilla-ubicacion {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .capilla-ubicacion .fortaleza iframe {
+        height: 300px;
+    }
+
+
+    /* GRUPOS */
+
+    .grupos {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .grupos-titulo h2 {
+        font-size: 27px;
+    }
+
+    .grupos-titulo p {
+        font-size: 14px;
+
+        line-height: 1.5;
+    }
+
+    .grupos-contenedor {
+        gap: 20px;
+    }
+
+    .grupo-card .grupo-imagen {
+        height: 210px;
+    }
+
+    .grupo-contenido {
+        padding: 18px;
+    }
+
+    .grupo-contenido h3 {
+        font-size: 19px;
+    }
+
+    .grupo-contenido p {
+        font-size: 14px;
+    }
+
+    .grupo-contenido a {
+        padding: 9px 20px;
+
+        font-size: 14px;
+    }
+
+    .grupos-galeria {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+
+    /* MONAGUILLOS */
+
+    .grupo-informacion {
+        width: 94%;
+
+        margin: 35px auto;
+    }
+
+    .grupo-seccion {
+        margin-bottom: 25px;
+    }
+
+    .grupo-seccion > .grupo-imagen {
+        height: 210px;
+
+        min-height: 210px;
+    }
+
+    .grupo-texto {
+        padding: 22px 18px;
+    }
+
+    .grupo-texto h2 {
+        font-size: 23px;
+    }
+
+    .grupo-texto p,
+    .grupo-texto li {
+        font-size: 14px;
+    }
+
+    .grupo-ubicacion .fortaleza iframe {
+        height: 300px;
+    }
+
+    .btn-regresar {
+        padding: 11px 25px;
+
+        font-size: 14px;
+    }
+
+
+    /* NOTICIAS */
+
+    .noticia-periodico {
+        width: 95%;
+
+        margin: 30px auto;
+    }
+
+    .noticia-periodico h1 {
+        font-size: 22px;
+
+        padding: 25px 15px 10px;
+    }
+
+    .noticia-periodico .fecha {
+        font-size: 13px;
+
+        padding: 0 15px 20px;
+    }
+
+    .noticia-periodico .imagen-noticia {
+        height: 230px;
+    }
+
+    .noticia-periodico .contenido-noticia {
+        width: 90%;
+
+        padding: 25px 0;
+    }
+
+    .noticia-periodico .contenido-noticia p {
+        font-size: 15px;
+
+        line-height: 1.7;
+    }
+
+    .noticia-periodico .imagen-secundaria {
+        margin: 25px auto;
+    }
+
+    .noticia-periodico .btn-regresar {
+        font-size: 14px;
+
+        padding: 10px 20px;
+    }
+
+
+    /* TÉRMINOS */
+
+    .contenedor-terminos {
+        width: 94%;
+
+        margin: 30px auto;
+
+        padding: 25px 17px;
+
+        border-radius: 13px;
+    }
+
+    .contenedor-terminos p {
+        font-size: 15px;
+
+        line-height: 1.7;
+
+        margin-bottom: 22px;
+    }
+
+    .contenedor-terminos h2 {
+        font-size: 20px;
+
+        margin: 35px 0 18px;
+    }
+
+    .contenedor-terminos p:first-child {
+        font-size: 14px;
+
+        padding: 12px;
+    }
+
+
+    /* SAN JOSELITO */
+
+    .sanjoselito img {
+        max-height: 280px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-top {
+        padding: 28px 15px;
+
+        gap: 22px;
+    }
+
+    .footer-bottom {
+        padding: 18px 15px;
+    }
+
+    .facebook-icon,
+    .sello {
+        width: 45px;
+    }
+
+}
