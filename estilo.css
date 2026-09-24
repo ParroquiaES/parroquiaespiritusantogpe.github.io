@@ -2097,6 +2097,11 @@ iframe {
         font-size: 14px;
 
         white-space: nowrap;
+
+        /* SIN BURBUJA */
+        background: transparent;
+        border: none;
+        border-radius: 0;
     }
 
 
@@ -2486,14 +2491,14 @@ iframe {
 
     .top-bar > a {
         width: 100%;
-        height: 78px;
+        height: 82px;
 
         display: flex;
 
         justify-content: center;
         align-items: center;
 
-        padding: 4px 8px;
+        padding: 3px 8px;
 
         background: #000;
     }
@@ -2501,9 +2506,9 @@ iframe {
     .logo,
     .top-bar.scrolled .logo {
         width: auto;
-        max-width: 165px;
+        max-width: 185px;
 
-        height: 65px;
+        height: 76px;
 
         margin: 0 auto;
 
@@ -2532,9 +2537,9 @@ iframe {
 
         flex-wrap: nowrap;
 
-        gap: 3px;
+        gap: 12px;
 
-        padding: 6px 8px;
+        padding: 8px 12px;
 
         background: #000;
 
@@ -2557,25 +2562,28 @@ iframe {
 
         min-height: 30px;
 
-        padding: 7px 9px;
+        padding: 5px 2px;
 
         color: white;
 
-        font-size: 12px;
+        font-size: 13px;
 
         line-height: 1;
 
         white-space: nowrap;
 
-        background: rgba(255, 255, 255, 0.08);
-
-        border: 1px solid rgba(255, 255, 255, 0.16);
-
-        border-radius: 18px;
+        /* SOLO TEXTO, SIN BURBUJA */
+        background: transparent;
+        border: none;
+        border-radius: 0;
     }
 
     .ciencia a::after {
-        display: none;
+        display: block;
+
+        bottom: -5px;
+
+        height: 2px;
     }
 
 
@@ -2860,7 +2868,7 @@ iframe {
 
 
     /* =====================================================
-       HORARIOS
+       HORARIOS DE MISA - MÓVIL
     ===================================================== */
 
     .consejo {
@@ -2869,24 +2877,95 @@ iframe {
         margin-left: auto;
         margin-right: auto;
 
-        overflow-x: auto;
-
-        -webkit-overflow-scrolling: touch;
+        overflow: visible;
     }
 
     .consejo table {
         width: 100%;
 
-        min-width: 520px;
+        min-width: 0;
+
+        display: block;
+
+        border-radius: 10px;
     }
 
-    .consejo th,
-    .consejo td {
-        padding: 8px;
+    .consejo thead {
+        display: none;
+    }
 
-        font-size: 12px;
+    .consejo tbody {
+        display: block;
+
+        width: 100%;
+    }
+
+    .consejo tbody tr {
+        display: grid;
+
+        grid-template-columns: 1fr;
+
+        width: 100%;
+
+        margin-bottom: 10px;
+
+        padding: 10px 14px;
+
+        background: #f9f9f9 !important;
+
+        border-left: 4px solid #00155c;
+
+        border-radius: 8px;
+
+        box-shadow: 0 2px 7px rgba(0, 0, 0, 0.10);
+    }
+
+    .consejo tbody tr:last-child {
+        margin-bottom: 0;
+    }
+
+    .consejo tbody td {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        gap: 15px;
+
+        width: 100%;
+
+        padding: 7px 0;
+
+        font-size: 14px;
+
+        text-align: right;
 
         white-space: normal;
+
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .consejo tbody td:last-child {
+        border-bottom: none;
+    }
+
+    .consejo tbody td::before {
+        content: attr(data-label);
+
+        flex-shrink: 0;
+
+        color: #00155c;
+
+        font-weight: bold;
+
+        text-align: left;
+    }
+
+    .consejo h2 {
+        font-size: 22px;
+
+        margin-bottom: 18px;
     }
 
 
@@ -2927,16 +3006,20 @@ iframe {
 
     .oficina-horarios .consejo {
         width: 100%;
-        overflow-x: auto;
+        overflow: visible;
     }
 
     .oficina-horarios .consejo table {
-        min-width: 460px;
+        min-width: 0;
+    }
+
+    .oficina-horarios .consejo tbody tr {
+        padding: 8px 12px;
     }
 
     .oficina-horarios .consejo th,
     .oficina-horarios .consejo td {
-        padding: 10px 7px;
+        padding: 7px 0;
 
         font-size: 12px;
     }
@@ -3600,28 +3683,28 @@ iframe {
     /* HEADER */
 
     .top-bar > a {
-        height: 76px;
+        height: 82px;
 
-        padding: 3px 4px;
+        padding: 2px 4px;
     }
 
     .logo,
     .top-bar.scrolled .logo {
-        height: 62px;
+        height: 74px;
 
-        max-width: 155px;
+        max-width: 175px;
     }
 
     .ciencia {
-        gap: 3px;
+        gap: 11px;
 
-        padding: 5px 6px;
+        padding: 7px 10px;
     }
 
     .ciencia a {
-        font-size: 11px;
+        font-size: 12px;
 
-        padding: 7px 8px;
+        padding: 5px 1px;
 
         min-height: 28px;
     }
@@ -3718,8 +3801,22 @@ iframe {
 
     /* HORARIOS */
 
+    .consejo {
+        width: 94%;
+    }
+
     .consejo table {
-        min-width: 500px;
+        min-width: 0;
+    }
+
+    .consejo tbody tr {
+        padding: 9px 12px;
+    }
+
+    .consejo tbody td {
+        font-size: 13px;
+
+        padding: 6px 0;
     }
 
 
@@ -3748,12 +3845,12 @@ iframe {
     }
 
     .oficina-horarios .consejo table {
-        min-width: 440px;
+        min-width: 0;
     }
 
     .oficina-horarios .consejo th,
     .oficina-horarios .consejo td {
-        padding: 8px 5px;
+        padding: 6px 0;
 
         font-size: 11px;
     }
